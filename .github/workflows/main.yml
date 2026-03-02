@@ -1,0 +1,22 @@
+name: Operacion Test
+
+run-name: Realizando operaciones...
+
+on: push
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Ejecutar pruebas con Maven
+        run: mvn test
